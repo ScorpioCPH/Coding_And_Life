@@ -1,0 +1,8 @@
+This is a learning note about RFC2616, which difined the HTTP/1.1
+
+1.Some Terminology:
+  Entity: 实体，作为被传递的信息内容，是请求或是响应的有效载荷，它由两部分组成：存在于实体标题区的“元信息”，存在于实体主体区的内容；
+  Representation: 表现，
+  Content Negotiation: 内容协商，
+  Variant: 变体，
+
