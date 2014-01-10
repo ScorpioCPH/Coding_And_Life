@@ -1,0 +1,34 @@
+This is a learning note about RFC2616, which difined the HTTP/1.1
+
+1.Some Terminology:
+  Connection: 连接，传输层的虚拟回路，由想要进行通信的两个程序创建；
+  Message: 消息， HTTP的基本通信单元，由结构化的字节序列组成，它满足特定的语法，并且通过连接进行传输；
+  Request: 请求，或称请求消息；
+  Response: 响应，或称响应消息;
+  Resource: 资源，通过URI定义的，网络数据对象或者服务，它可以有多种的表现形式（多语言，数据格式，大小，解析？）；
+  Entity: 实体，作为被传递的信息，是请求或是响应的有效载荷，它由两部分组成：存在于实体标题区的“元信息”,以及存在于实体主体区的内容；
+  Representation: 表现，一个实体，包含了一个响应（内容协商主题），有可能存在多个表现，关联到同一个特定的响应状态；
+  Content Negotiation: 内容协商，
+  Variant: 变体，
+  Client: 客户端
+  User Agent: 用户代理，
+  Server: 服务器，
+  Origin Server: 源服务器，
+  Proxy:
+  Gateway:
+  Tunnel:
+  Cache:
+  Cacheable:
+  First-Hand:
+  Explicit Expiration Time: 显示过期时间
+  Heuristic Expiration Time: 启发式过期时间
+  Age:
+  Freshness Lifetime: 保鲜期
+  Fresh:
+  Stale:
+  Semantically Transparent: 语义透明
+  Validator: 验证器
+  Upstream/Downstream: 上行/下行
+  Inbound/Outbound: 入站/出站
+  
+
