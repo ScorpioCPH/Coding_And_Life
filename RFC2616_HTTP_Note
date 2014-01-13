@@ -5,9 +5,9 @@ This is a learning note about RFC2616, which difined the HTTP/1.1
   Message: 消息， HTTP的基本通信单元，由结构化的字节序列组成，它满足特定的语法，并且通过连接进行传输；
   Request: 请求，或称请求消息；
   Response: 响应，或称响应消息;
-  Resource: 资源，通过URI定义的，网络数据对象或者服务，它可以有多种的表现形式（多语言，数据格式，大小，解析？）；
+  Resource: 资源，通过URI定义的，网络数据对象或者服务，它可以有多种的表现形式（多语言，数据格式，大小，分辨率）；
   Entity: 实体，作为被传递的信息，是请求或是响应的有效载荷，它由两部分组成：存在于实体标题区的“元信息”,以及存在于实体主体区的内容；
-  Representation: 表现，一个实体，包含了一个响应（内容协商主题），有可能存在多个表现，关联到同一个特定的响应状态；
+  Representation: 表现形式，一个响应包含的实体是由内容协商决定的，有可能存在一个特定的响应状态对应多个表现形式；
   Content Negotiation: 内容协商，一种根据请求来选择表现的机制。每一个响应中的实体表现都可以被协商，包括错误响应。
   Variant: 变体，在任何时刻，一个资源都有可能存在一个或是多个连接到它上面的表现。每一个这种表现，都是一个“变体”，使用变体这个概念，并不一定意味着，资源就是内容协商的主题。
   Client: 客户端，一个程序，通过建立连接来完成发送请求的目的。
@@ -15,20 +15,23 @@ This is a learning note about RFC2616, which difined the HTTP/1.1
   Server: 服务器，一个接受连接的应用程序，通过向客户端返回响应来处理请求。任何程序，都有可能成为客户端或者服务器，我们用这些概念来表明处理特定连接的角色，而不是程序通常的功能。同样的，根据不同请求的性质，任何服务器都可以通过切换它们的行为，来作为源服务器，代理服务器，网关，或是管道。
   Origin Server: 源服务器，存储或创建资源的服务器。
   Proxy: 代理，一个中间程序，既充当服务器，也作为客户端，为了代表其他客户端提出请求。请求被内部处理，或者被传递（有可能被翻译）给其他服务器。一个代理必须完成服务器和客户端的功能需求。
-  Gateway:
-  Tunnel:
-  Cache:
-  Cacheable:
-  First-Hand:
-  Explicit Expiration Time: 显示过期时间
-  Heuristic Expiration Time: 启发式过期时间
-  Age:
-  Freshness Lifetime: 保鲜期
-  Fresh:
-  Stale:
-  Semantically Transparent: 语义透明
-  Validator: 验证器
-  Upstream/Downstream: 上行/下行
-  Inbound/Outbound: 入站/出站
+  Gateway: 网关，
+  Tunnel: 管道，
+  Cache: 缓存，
+  Cacheable: 可缓存的，
+  First-Hand: 第一手，
+  Explicit Expiration Time: 显示过期时间，
+  Heuristic Expiration Time: 启发式过期时间，
+  Age: 寿命，
+  Freshness Lifetime: 保鲜期，
+  Fresh: 新鲜的，
+  Stale: 陈旧的，
+  Semantically Transparent: 语义透明，
+  Validator: 验证器，
+  Upstream/Downstream: 上行/下行，
+  Inbound/Outbound: 入站/出站，
+
+2.Overall Operation
+  HTTP是一个响应/请求的协议。
   
 
