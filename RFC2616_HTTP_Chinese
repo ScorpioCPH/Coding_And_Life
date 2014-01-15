@@ -1,6 +1,6 @@
-This is a learning note about RFC2616, which difined the HTTP/1.1
+This is a chinese version of RFC2616, which difined the HTTP/1.1
 
-1.Some Terminology 术语:
+1.2 Terminology 术语:
 
   Connection: 连接，传输层的虚拟回路，由想要进行通信的两个程序创建。
   Message: 消息，HTTP的基本通信单元，由结构化的字节序列组成，它满足特定的语法，并且通过连接进行传输。
@@ -61,7 +61,7 @@ This is a learning note about RFC2616, which difined the HTTP/1.1
   Inbound/Outbound: 入站/出站，指明了消息的请求/响应路径，
                     “入站”意味着“流向源服务器”，“出站”意味着“流向客户端user agent”。
 
-2.Overall Operation 概述：
+1.3. Overall Operation 概述：
 
   HTTP是一个响应/请求的协议。
   客户端给服务器发送请求消息，格式是这样的，一个请求方法“request method”，加上URI，
@@ -234,5 +234,220 @@ This is a learning note about RFC2616, which difined the HTTP/1.1
   
   10.5 Server Error 5xx 服务器端错误 5xx
   
+11. Access Authentication 访问许可
+
+12. Content Negotiation 内容协商
+
+  12.1 Server-driven Negotiation 服务器驱动的协商
   
+  12.2 Agent-driven Negotiation 客户端驱动的协商
+  
+  12.3 Transparent Negotiation 透明协商
+  
+13. Caching in HTTP HTTP中的缓存
+
+  13.2 Expiration Model 过期模型
+  
+  13.3 Validation Model 验证模型
+  
+  13.4 Response Cacheability 响应的缓存能力
+  
+  13.5 Constructing Responses From Caches 从缓存中构建响应
+  
+  13.6 Caching Negotiated Responses 缓存协商过的响应
+  
+  13.7 Shared and Non-Shared Caches 共享缓存和非共享缓存
+  
+  13.8 Errors or Incomplete Response Cache Behavior 错误或是不完整的响应缓存行为
+  
+  13.9 Side Effects of GET and HEAD GET方法和HEAD方法的副作用
+  
+  13.10 Invalidation After Updates or Deletions 更新或删除后失效
+  
+  13.11 Write-Through Mandatory 强制的直接写入
+  
+  13.12 Cache Replacement 缓存替换
+  
+  13.13 History Lists 历史列表
+  
+14. Header Field Definitions 报文头域定义
+
+  14.1 Accept 接受
+  
+  14.2 Accept-Charset 接受-字符集
+  
+  14.3 Accept-Encoding 接受-编码
+  
+  14.4 Accept-Language 接受-语言
+  
+  14.5 Accept-Ranges 接受-范围
+  
+  14.6 Age 年龄
+  
+  14.7 Allow 允许
+  
+  14.8 Authorization 授权
+  
+  14.9 Cache-Control 缓存控制
+  
+    14.9.1 What is Cacheable 什么是可缓存
+    
+    14.9.2 What May be Stored by Caches 什么可以被缓存保存下来
+    
+    14.9.3 Modifications of the Basic Expiration Mechanism 基本过期机制的修改
+    
+    14.9.4 Cache Revalidation and Reload Controls 缓存重新生效，和缓存加载控制
+    
+    14.9.5 No-Transform Directive 不转换指令
+    
+    14.9.6 Cache Control Extensions 缓存控制扩展
+  
+  14.10 Connection 连接
+  
+  14.11 Content-Encoding 内容-编码
+  
+  14.12 Content-Language 内容-语言
+  
+  14.13 Content-Length 内容-长度
+  
+  14.14 Content-Location 内容-位置
+  
+  14.15 Content-MD5 内容-MD5加密码
+  
+  14.16 Content-Range 内容-范围
+  
+  14.17 Content-Type 内容-类型
+  
+  14.18 Date 日期
+  
+    14.18.1 Clockless Origin Server Operation 无节拍的源服务器操作
+    
+  14.19 ETag Entity-Tag 实体标签
+  
+  14.20 Expect 期望
+  
+  14.21 Expires 到期
+  
+  14.22 From 来源
+  
+  14.23 Host 主机
+  
+  14.24 If-Match 是否匹配
+  
+  14.25 If-Modified-Since 是否从...起被修改
+  
+  14.26 If-None-Match 是否不匹配
+  
+  14.27 If-Range 是否在范围内
+  
+  14.28 If-Unmodified-Since 是否从...起，未被修改
+  
+  14.29 Last-Modified 最后修改
+  
+  14.30 Location 位置
+  
+  14.31 Max-Forwards 最大转发次数
+  
+  14.32 Pragma 编译指示
+  
+  14.33 Proxy-Authenticate 代理-认证
+  
+  14.34 Proxy-Authorization 代理-授权
+  
+  14.35 Range 范围
+    
+    14.35.1 Byte Ranges 字节范围
+    
+    14.35.2 Range Retrieval Requests 范围检索请求
+    
+  14.36 Referer 参考
+  
+  14.37 Retry-After 稍后重试
+  
+  14.38 Server 服务器
+  
+  14.39 TE Transfer-Extension 转移扩展
+  
+  14.40 Trailer 追踪者
+  
+  14.41 Transfer-Encoding 转移-编码
+  
+  14.42 Upgrade 更新
+  
+  14.43 User-Agent 用户代理
+  
+  14.44 Vary 变化
+  
+  14.45 Via 通过
+  
+  14.46 Warning 警告
+  
+  14.47 WWW-Authenticate 万维网-认证
+  
+15 Security Considerations 安全考虑
+
+  15.1 Personal Information 个人信息
+  
+    15.1.1 Abuse of Server Log Information 服务器日志的滥用
+    
+    15.1.2 Transfer of Sensitive Information 敏感信息的转移
+    
+    15.1.3 Encoding Sensitive Information in URI’s URI中的敏感信息编码
+    
+    15.1.4 Privacy Issues Connected to Accept Headers 连接到接受报文头的隐私问题
+    
+  15.2 Attacks Based On File and Path Names 基于文件和路径名的攻击
+  
+  15.3 DNS Spoofing DNS欺骗
+  
+  15.4 Location Headers and Spoofing 位置报文头和欺骗
+  
+  15.5 Content-Disposition Issues 内容处理问题
+  
+  15.6 Authentication Credentials and Idle Clients 身份验证凭证和空闲的客户
+  
+  15.7 Proxies and Caching 代理和缓存
+  
+    15.7.1 Denial of Service Attacks on Proxies 代理上的拒绝服务攻击
+    
+16. Acknowledgments 致谢
+
+17. References 参考文献
+
+18. Authors’ Addresses 作者地址 
+
+19. Appendices 附录
+
+  19.1 Internet Media Type message/http and application/http 因特网媒体类型： 消息/Http 和 应用程序/Http
+  
+  19.2 Internet Media Type multipart/byteranges 因特网媒体类型：
+  
+  19.3 Tolerant Applications 容错应用
+  
+  19.4 Differences Between HTTP Entities and RFC 2045 Entities HTTP实体和RFC2045实体之间的不同
+  
+    19.4.1 MIME-Version MIME版本
+    
+    19.4.2 Conversion to Canonical Form 规范形式的转换
+    
+    19.4.3 Conversion of Date Formats 日期格式的转换
+    
+    19.4.4 Introduction of Content-Encoding 内容编码简介
+    
+    19.4.5 No Content-Transfer-Encoding 不适用内容传输编码
+    
+    19.4.6 Introduction of Transfer-Encoding 传输编码简介
+    
+    19.4.7 MHTML and Line Length Limitations MHTML和线长度的限制
+    
+  19.5 Additional Features 附加的特性
+  
+  19.6 Compatibility with Previous Versions 
+  
+  
+  
+  
+  
+
+
       
