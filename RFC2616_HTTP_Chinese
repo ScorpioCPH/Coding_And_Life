@@ -184,8 +184,16 @@ This is a chinese version of RFC2616, which difined the HTTP/1.1
           http://ABC.com:/%7esmith/home.html
       
   3.3 Date/Time Formats 日期/时间 格式
+    
+    3.3.1 Full Date 完整日期
+    
+    3.3.2 Delta Seconds 
   
   3.4 Character Sets 字符集
+  
+    3.4.1 Missing Charset 缺失的字符集
+    
+    
   
   3.5 Content Codings 内容编码
   
