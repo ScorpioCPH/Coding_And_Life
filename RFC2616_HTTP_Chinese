@@ -124,3 +124,115 @@ This is a learning note about RFC2616, which difined the HTTP/1.1
   
   大部分HTTP/1.0 的实现都是对每个请求/响应交换，产生一个新的连接。
   而HTTP/1.1中，一个连接可以用于一个或更多请求/响应交换，虽然连接可能会因为各种原因中断（见第8.1节）。
+  
+2.Notational Conventions and Generic Grammar 符号约定及基本语法
+  
+  2.1 Augmented BNF 扩展的巴科斯-诺尔范式
+  
+  2.2 Basic Rules 基本规则
+  
+3.Protocol Parameters 协议参数
+
+  3.1 HTTP Version HTTP版本    
+      HTTP使用“<主版本>.<次版本>”的编码格式来指明协议版本。
+      
+  3.2 Uniform Resource Identifiers 统一资源标识符
+  
+      General Syntax 基本语法
+      
+      http URL HTTP的统一资源定位符：http_URL = "http:" "//" host [ ":" port ] [ abs_path [ "?" query ]]
+  
+      URI Comparison URI比较
+      
+  3.3 Date/Time Formats 日期/时间 格式
+  
+  3.4 Character Sets 字符集
+  
+  3.5 Content Codings 内容编码
+  
+  3.6 Transfer Codings 传输编码
+  
+  3.7 Media Types 媒体类型
+  
+  3.8 Product Tokens 产品标识
+  
+  3.9 Quality Values 质量值
+  
+  3.10 Language Tags 语言标记
+  
+  3.11 Entity Tags 实体标记
+  
+  3.12 Range Units 范围单位
+  
+4. HTTP Message HTTP消息
+
+  4.1 Message Types 消息类型
+  
+  4.2 Message Headers 消息头
+  
+  4.3 Message Body 消息体
+  
+  4.4 Message Length 消息长度
+  
+  4.5 General Header Fields 普通标题域
+  
+5. Request 请求
+
+  5.1 Request-Line 请求行
+  
+  5.2 The Resource Identified by a Request 被请求标识的资源
+  
+  5.3 Request Header Fields 请求报文头域
+  
+6. Response 响应
+
+  6.1 Status-Line 状态行
+  
+  6.2 Response Header Fields 响应报文头域
+  
+7. Entity 实体
+
+  7.1 Entity Header Fields 实体报文头域
+  
+  7.2 Entity Body 实体主体
+  
+8. Connections 连接
+
+  8.1 Persistent Connections 持久连接
+  
+  8.2 Message Transmission Requirements 消息传输需求
+  
+9. Method Definitions 方法定义
+
+  9.1 Safe and Idempotent Methods 安全方法和幂等方法
+  
+  9.2 OPTIONS 可选方法
+  
+  9.3 GET GET方法
+  
+  9.4 HEAD 头方法
+  
+  9.5 POST POST方法
+  
+  9.6 PUT PUT方法
+  
+  9.7 DELETE DELETE方法
+  
+  9.8 TRACE TRACE方法
+  
+  9.9 CONNECT CONNECT方法
+  
+10. Status Code Definitions 状态码定义
+
+  10.1 Informational 1xx 信息 1xx 
+  
+  10.2 Successful 2xx 成功 2xx
+  
+  10.3 Redirection 3xx 重定向 3xx
+  
+  10.4 Client Error 4xx 客户端错误 4xx
+  
+  10.5 Server Error 5xx 服务器端错误 5xx
+  
+  
+      
