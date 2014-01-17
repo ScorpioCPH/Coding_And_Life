@@ -223,6 +223,19 @@ This is a chinese version of RFC2616, which difined the HTTP/1.1
   HTTP/1.1在接收编码“Accept-Encoding”和内容编码“Content-Encoding”的报文头域中，使用内容编码值“content-coding values”。
   
   3.6 Transfer Codings 传输编码
+  传输编码值，用来表明一种编码转换，这种转换可以被（或是必须地）应用于消息体中，来确保网络上的安全传输“safe transport”。
+  和内容编码值不同，传输编码值是消息的一种属性，而不是原始实体的属性。
+  
+    transfer-coding = "chunked" | transfer-extension
+    transfer-extension = token * ( ";" parameter )
+  
+  参数是用属性/属性值“attribute/value”来标识的
+  
+    parameter  = attribute "=" value
+    attribute  = token
+    value      = token | quoted-string
+  所有的传输编码都是不区分大小写的。
+  HTTP/1.1在TE报文头域和Transfer-Encoding报文头域中使用传输编码。
   
   3.7 Media Types 媒体类型
   
