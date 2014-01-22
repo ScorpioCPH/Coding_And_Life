@@ -1,0 +1,88 @@
+5. Request 请求
+  请求消息是从客户端发送到服务器的，由以下部分组成，消息的起始行，申请资源的方法，资源的标识符，以及使用的协议版本号。
+  
+    Request  =  Request-Line
+                *(( general-header
+                |   request-header
+                |   entity-header ) CRLF ）
+                CRLF
+                [ message-body ]
+
+  5.1 Request-Line 请求行
+  请求行“Request-Line”由方法“method”开始，紧跟着是请求的资源标识符“Request-URI”，以及协议版本号，以CRLF结尾。
+  这些元素使用空格符“SP”分开。中间不允许有回车符CR和换行符LF。
+  
+    Request-Line = Method SP Request-URI SP HTTP-Version CRLF
+  
+    5.1.1 Method 方法
+    方法令牌“Method token”表明了将要执行在资源上面的方法。
+    方法是区分大小写的。
+    
+    Method  =  "OPTIONS"
+            |  "GET"
+            |  "HEAD"
+            |  "POST"
+            |  "PUT"
+            |  "DELETE"
+            |  "TRACE"
+            |  "CONNECT"
+            |  extension-method
+    extension-method = token
+  
+    资源允许的方法列表，可以在允许报文头域“Allow header field”中定义。
+    响应消息的返回码，总是会通知客户端这个方法在当前的资源上，是否被允许，同时，允许的方法集是可以动态改变的。
+    如果一个方法可以被源服务器识别，但不允许使用在请求的资源上，那么，原服务器应当返回一个405的状态码（方法不被允许），
+    如果这个方法没有被源服务器识别或是实现，那么，应该返回一个501的状态码（没有实现）。
+    所有的通用服务器都应该支持GET方法和HEAD方法。
+    其他的方法都是可选的，然而，如果要实现他们，那么必须遵循第9章中的语义规定。
+    
+    5.1.2 Request-URI 请求资源标识符
+    请求资源标识符，定义了请求消息中的资源。
+      
+      Request-URI = "*" | absoluteURI | abs_path | authority
+      
+    在请求的性质上，四个可选项是独立的。
+    星号表明了，请求不是应用在一个特定的资源上，而是服务器本身，并且只有当所用的方法不是应用于一个资源时，它才被允许。
+    如下面的例子：
+    
+      OPTIONS * HTTP/1.1
+      
+    当请求被用于代理时，绝对标识符“absoluteURI”是必须的。
+    代理被用来转发请求，或是从可用的缓存中提供服务，并且返回响应。
+    注意，代理可能将请求转发给另一个代理，或是直接转发给绝对标识符“absoluteURI”定义的服务器。
+    为了避免产生请求循环，代理服务器必须能够识别出它所有的服务器名，包括任何的别名，本地变名，以及IP地址。
+    一个请求行“Request-Line”的例子如下：
+    
+      GET http"//www.w3.org/pub/WWW/TheProject.html HTTP/1.1
+      
+    为了在将来的HTTP版本中，支持对所有请求中的绝对标识符“absoluteURI”进行转换，
+    所有的HTTP/1.1版本的服务器，必须接受请求中的绝对标识符，
+    尽管HTTP/1.1的客户端只会对代理服务器产生这些请求（即absoluteURI请求）。
+    
+    “authority”格式只会被CONNECT方法使用（第九章）。
+    
+    绝对标识符“absoluteURI”最普遍的形式，是用来在源服务器或是网关上定义资源。
+    在这种情况下，URI中的绝对路径“absolute path”，必须被转换成请求资源标识符“Request-URI”（参见3.2.1章节，abs_path），
+    URI中的网络位置“authority”，必须在主机报文头域中“Host header field”被转换。
+    举个例子，一个客户端向如果想从源服务器上，直接检索资源，那么它会产生一个在主机“www.w3.org”的80端口上的TCP连接，
+    发送这些命令行：
+    
+      GET /pub/WWW/TheProject.html HTTP/1.1
+      Host: www.w3.org
+      
+    接着是剩余的请求。
+    注意，绝对路径不能为空，如果源URI中没有定义，那么它必须是“/”（服务器根目录）。
+    
+    请求URI安装3.2.1章节定义的格式进行转换。
+    如果请求URI使用“% HEX HEX”编码，那么源服务器必须对请求URI进行解码，以便于可以正确解析请求的内容。
+    服务器应当对无效的请求URI，回复一个特定的状态码。
+  
+    当转发给下一个入站服务器时，透明的代理服务器，一定不能对接收到的请求URI的“abs_path”字段进行重写，
+    除非是上面所提到的，使用“/”替换空的abs_path字段。
+    
+      注意：当源服务器针对预定的响应，不恰当的使用非预期的URI字符，“不能重写”的规则，阻止了代理服务器改变请求的含义。
+            实现者应当注意到，有些HTTP/1.1版本之前的代理服务器，会重写请求URI。
+            
+  5.2 The Resource Identified by a Request 被请求标识的资源
+  
+  5.3 Request Header Fields 请求报文头域
