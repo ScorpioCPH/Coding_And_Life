@@ -277,8 +277,42 @@ This is a chinese version of RFC2616, which difined the HTTP/1.1
   4.5 General Header Fields 普通标题域
   
 5. Request 请求
+  请求消息是从客户端发送到服务器的，由以下部分组成，消息的起始行，申请资源的方法，资源的标识符，以及使用的协议版本号。
+  
+    Request  =  Request-Line
+                *(( general-header
+                |   request-header
+                |   entity-header ) CRLF ）
+                CRLF
+                [ message-body ]
 
   5.1 Request-Line 请求行
+  请求行“Request-Line”由方法“method”开始，紧跟着是请求的资源标识符“Request-URI”，以及协议版本号，以CRLF结尾。
+  这些元素使用空格符“SP”分开。中间不允许有回车符CR和换行符LF。
+  
+    Request-Line = Method SP Request-URI SP HTTP-Version CRLF
+  
+  5.1.1 Method 方法
+  方法令牌“Method token”表明了将要执行在资源上面的方法。
+  方法是区分大小写的。
+    
+    Method  =  "OPTIONS"
+            |  "GET"
+            |  "HEAD"
+            |  "POST"
+            |  "PUT"
+            |  "DELETE"
+            |  "TRACE"
+            |  "CONNECT"
+            |  extension-method
+    extension-method = token
+  
+  资源允许的方法列表，可以在允许报文头域“Allow header field”中定义。
+  响应消息的返回码，总是会通知客户端这个方法在当前的资源上，是否被允许，同时，允许的方法集是可以动态改变的。
+  如果一个方法可以被源服务器识别，但不允许使用在请求的资源上，那么，原服务器应当返回一个405的状态码（方法不被允许），
+  如果这个方法没有被源服务器识别或是实现，那么，应该返回一个501的状态码（没有实现）。
+  所有的通用服务器都应该支持GET方法和HEAD方法。
+  其他的方法都是可选的，然而，如果要实现他们，那么必须遵循第9章中的语义规定。
   
   5.2 The Resource Identified by a Request 被请求标识的资源
   
